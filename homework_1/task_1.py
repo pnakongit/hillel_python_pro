@@ -15,14 +15,11 @@ def cache(max_limit=3):
             result = f(*args, **kwargs)
 
             if len(dict_cache) >= max_limit:
-                print('!!!!!!')
                 min_count = min(counter_cache, key=counter_cache.get)
                 dict_cache.pop(min_count)
 
             dict_cache[cache_key] = result
             counter_cache[cache_key] = 1
-            print(dict_cache)
-            print(len(dict_cache))
             return result
 
         dict_cache, counter_cache = {}, {}
